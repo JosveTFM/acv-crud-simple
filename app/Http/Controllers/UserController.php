@@ -12,6 +12,8 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $uri = 'http://127.0.0.1:8000/api/';
+
     public function index()
     {
         $data = Http::get('http://127.0.0.1:8000/api/usuarios/');
@@ -36,7 +38,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $response = Http::asForm()->post('http://127.0.0.1:8000/api/register',[
+        $response = Http::asForm()->post($this->uri.'register',[
             'name' => $request['name'],
             'email' => $request['email'],
             'password' =>$request['password'],
@@ -55,7 +57,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $data = Http::get('http://127.0.0.1:8000/api/usuarios/'.$id);
+        $data = Http::get($this->uri.'usuarios/'.$id);
         return $data->body();
     }
 
@@ -67,7 +69,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $data = Http::get('http://127.0.0.1:8000/api/usuarios/'.$id);
+        $data = Http::get($this->uri.'usuarios/'.$id);
         return view('auth.update', compact('data'));
     }
 
@@ -80,7 +82,7 @@ class UserController extends Controller
      */
     public function update(int $user, Request $request)
     {
-        $response = Http::asForm()->put('http://127.0.0.1:8000/api/usuarios/'.$user, [
+        $response = Http::asForm()->put($this->uri.'usuarios/'.$user, [
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => $request['password'],
@@ -99,7 +101,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $response = Http::delete('http://127.0.0.1:8000/api/usuarios/'.$id);
+        $response = Http::delete($this->uri.'usuarios/'.$id);
         if ($response['status'] != 200) {
             return view('home', compact('response'));
         }
@@ -109,7 +111,7 @@ class UserController extends Controller
 
     public function register(Request $request)
     {
-        $response = Http::asForm()->post('http://127.0.0.1:8000/api/register',[
+        $response = Http::asForm()->post($this->uri.'register',[
             'name' => $request['name'],
             'email' => $request['email'],
             'password' =>$request['password'],
