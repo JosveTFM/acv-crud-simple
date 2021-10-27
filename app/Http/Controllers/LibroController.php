@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 class LibroController extends Controller
 {
 
-    public $uri = 'http://127.0.0.1:8000/api/';
+    public $uri = 'http://localhost:8000/api/';
 
     /**
      * Display a listing of the resource.

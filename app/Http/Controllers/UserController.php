@@ -12,11 +12,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $uri = 'http://127.0.0.1:8000/api/';
+    public $uri = 'http://localhost:8000/api/';
 
     public function index()
     {
-        $data = Http::get('http://127.0.0.1:8000/api/usuarios/');
+        $data = Http::get($this->uri.'usuarios/');
         return $data;
     }
 

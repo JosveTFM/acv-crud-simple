@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
-    public $uri = 'http://127.0.0.1:8000/api/';
+    public $uri = 'http://localhost:8000/api/';
     public function login(Request $request){
         $response = Http::asForm()->post($this->uri.'login',[
             'email' => $request['email'],

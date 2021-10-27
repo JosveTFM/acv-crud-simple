@@ -43,4 +43,4 @@ Si el proyecto [ACV API Login](https://github.com/govydev/acv-api-login) se ejec
 
 se debe modificar el contenido de la variable **uri** y cambiar a el puerto en el que se ejecuto la API.
 
-    $uri = 'http://127.0.0.1:8000/api/';
+    $uri = 'http://localhost:8000/api/';
