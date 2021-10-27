@@ -32,3 +32,15 @@ Revisar el archivo **.env.example** y generar la base de datos que se indica ade
 Ejecutar el comando.
 
     $php artisan serve --port=8001
+
+## Precaución
+
+Si el proyecto [ACV API Login](https://github.com/govydev/acv-api-login) se ejecuto en el puerto **(8000)** puede hacer las pruebas sin ningun inconveniente, pero si se ejecuto en otro puerto es necesario hacer modificaciones a los archivos ubicados en de la carpeta [Controllers](https://github.com/govydev/acv-crud-simple/tree/main/app/Http/Controllers), especificamente a los archivos.
+
+- [AuthController.php](https://github.com/govydev/acv-crud-simple/blob/main/app/Http/Controllers/AuthController.php).
+- [LibroController.php](https://github.com/govydev/acv-crud-simple/blob/main/app/Http/Controllers/LibroController.php).
+- [UserController.php](https://github.com/govydev/acv-crud-simple/blob/main/app/Http/Controllers/UserController.php).
+
+se debe modificar el contenido de la variable **uri** y cambiar a el puerto en el que se ejecuto la API.
+
+    $uri = 'http://127.0.0.1:8000/api/';
