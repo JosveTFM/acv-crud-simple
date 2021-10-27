@@ -14,7 +14,8 @@ class AuthController extends Controller
             'password' =>$request['password'],
         ]);
         if ($response['status'] == 200) {
-            return view('home', compact('response'));
+            $data = Http::get($this->uri.'libros');
+            return view('home', compact('response', 'data'));
         }else{
             return view('auth.login', compact('response'));
         }
