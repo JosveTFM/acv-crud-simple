@@ -19,11 +19,16 @@ Esta aplicacion incorpora
 - Vista de datos de libros
 
 
-Esta aplicación no contiene ningun sistema de base datos agregado por que lo que no es necesario ejecutar las migraciones.
+**Esta aplicación no contiene ningun sistema de base datos agregado por que lo que no es necesario ejecutar las migraciones.**
 
 ## Primeros pasos
-Una ves descargado, ingresar a la carpeta del proyecto y ejecutar el comando.
+Una ves descargado, Ingresar a la carpeta del proyecto y ejecutar el comando.
+
+    $composer install
+Para descargar las dependencias necesarias.
+
+Revisar el archivo **.env.example** y generar la base de datos que se indica ademas de generar una copia y renombrarlo como **.env**.
+
+Ejecutar el comando.
 
     $php artisan serve --port=8001
-
-
